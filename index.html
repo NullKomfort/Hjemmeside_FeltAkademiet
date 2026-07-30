@@ -589,6 +589,14 @@
       margin-bottom: 0.6rem;
       filter: drop-shadow(0 2px 16px rgba(200,168,75,0.22));
     }
+    .hero-logo-wrap {
+      display: inline-block;
+      background: rgba(10,12,8,0.55);
+      border-radius: 12px;
+      padding: 0.6rem 1rem;
+      backdrop-filter: blur(2px);
+      margin-bottom: 0.6rem;
+    }
 
     /* ── ANIMATIONS ── */
     @keyframes fadeUp {
@@ -751,7 +759,7 @@
   <div class="hero-content">
     <div class="hero-eyebrow">Beredskap · Robusthet · Totalforsvar</div>
     <h1>
-      <img src="logo.png" alt="FeltAkademiet" class="hero-logo-img" />
+      <div class="hero-logo-wrap"><img src="logo.png" alt="FeltAkademiet" class="hero-logo-img" style="margin-bottom:0" /></div>
       <span class="line-red" style="font-size: 5rem;">BEREDT ROBUST KLAR</span>
     </h1>
     <p class="hero-sub">
