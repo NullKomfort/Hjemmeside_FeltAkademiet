@@ -1,0 +1,123 @@
+backend:
+  name: git-gateway
+  branch: main
+
+locale: nb_NO
+
+media_folder: "bilder"
+public_folder: "bilder"
+
+collections:
+  - name: "arrangementer"
+    label: "Arrangementer"
+    label_singular: "Arrangement"
+    folder: "_arrangementer"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - label: "Tittel"
+        name: "tittel"
+        widget: "string"
+        hint: "F.eks. Bivuakk — Etablering av tilholdssted"
+
+      - label: "Kurskode"
+        name: "kurskode"
+        widget: "string"
+        hint: "F.eks. KRS-02"
+
+      - label: "Dato"
+        name: "dato"
+        widget: "string"
+        hint: "F.eks. 14. juni 2026"
+
+      - label: "Klokkeslett"
+        name: "tid"
+        widget: "string"
+        hint: "F.eks. 09:00 – 15:00"
+
+      - label: "Varighet"
+        name: "varighet"
+        widget: "string"
+        hint: "F.eks. 6 timer"
+
+      - label: "Type"
+        name: "type"
+        widget: "select"
+        options:
+          - { label: "Enkelt-tema", value: "Enkelt-tema" }
+          - { label: "Teori & Demo", value: "Teori & Demo" }
+          - { label: "Teori & Praksis", value: "Teori & Praksis" }
+          - { label: "Overnattingsøkt", value: "Overnattingsøkt" }
+
+      - label: "Sted"
+        name: "sted"
+        widget: "select"
+        options:
+          - { label: "Ute · Østlandet", value: "Ute · Østlandet" }
+          - { label: "Inne", value: "Inne" }
+          - { label: "Inne / Ute", value: "Inne / Ute" }
+
+      - label: "Antall plasser"
+        name: "plasser"
+        widget: "number"
+        default: 8
+
+      - label: "Pris (kr)"
+        name: "pris"
+        widget: "number"
+        default: 400
+
+      - label: "Returrabatt (kr)"
+        name: "returrabatt"
+        widget: "number"
+        default: 300
+
+      - label: "Gjennomført"
+        name: "gjennomfort"
+        widget: "boolean"
+        default: false
+        hint: "Marker arrangementet som gjennomført — viser stempel på siden"
+
+      - label: "Ingress"
+        name: "ingress"
+        widget: "text"
+        hint: "Kort beskrivelse som vises øverst på arrangementssiden"
+
+      - label: "Program"
+        name: "program"
+        widget: "list"
+        label_singular: "Punkt"
+        fields:
+          - label: "Tidspunkt"
+            name: "tid"
+            widget: "string"
+            hint: "F.eks. 09:00"
+          - label: "Tittel"
+            name: "tittel"
+            widget: "string"
+          - label: "Beskrivelse"
+            name: "beskrivelse"
+            widget: "text"
+          - label: "Fremhevet"
+            name: "highlight"
+            widget: "boolean"
+            default: false
+            hint: "Gul tidsstempel — bruk for lunsj, start og avslutning"
+
+      - label: "Inkludert i prisen"
+        name: "inkludert"
+        widget: "list"
+        field:
+          label: "Punkt"
+          name: "punkt"
+          widget: "string"
+
+      - label: "Tilleggsinformasjon (valgfritt)"
+        name: "tillegg"
+        widget: "list"
+        required: false
+        field:
+          label: "Punkt"
+          name: "punkt"
+          widget: "string"
+          hint: "Vises nedtonet — f.eks. 'Ta gjerne med ekstra mat'"
