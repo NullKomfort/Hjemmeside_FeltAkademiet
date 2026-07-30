@@ -727,6 +727,7 @@
     }
 
   </style>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
 
@@ -837,12 +838,26 @@
         <span class="event-month">Juni</span>
       </div>
       <div class="event-info">
-        <span class="event-title">Bivuakk — Etablering av tilholdssted</span>
+        <span class="event-title">Bål & Bivuakk</span>
         <div class="event-meta-row">
-          <span class="event-tag">Enkelt-tema · Teori & Praksis · 6 timer</span>
+          <span class="event-tag">KRS-02 · Teori & Praksis · 6 timer</span>
         </div>
         <div class="event-meta-row">
           <span class="event-spots">● 8 plasser · 400 kr</span>
+        </div>
+      </div>
+      <span class="event-arrow">›</span>
+    </a>
+
+    <a class="event-item" href="arr002-x2026.html">
+      </div>
+      <div class="event-info">
+        <span class="event-title">Ild & Varme — Enkelt-tema</span>
+        <div class="event-meta-row">
+          <span class="event-tag">Teori & Praksis · 3 timer</span>
+        </div>
+        <div class="event-meta-row">
+          <span class="event-spots">● KOMMER</span>
         </div>
       </div>
       <span class="event-arrow">›</span>
@@ -919,11 +934,11 @@
   </div>
 </section>
 
-<!-- FIRE SØYLER / KONSEPT -->
+<!-- TRE SØYLER / KONSEPT -->
 <section class="pillars-section" id="konsept">
   <div class="sec-header">
     <span class="sec-num">02 //</span>
-    <h2 class="sec-title">Fire søyler</h2>
+    <h2 class="sec-title">Tre søyler</h2>
     <div class="sec-line"></div>
   </div>
   <div class="pillars-grid">
@@ -1228,4 +1243,15 @@
   <div class="footer-copy">© 2025 · Norge · Alle rettigheter forbeholdt</div>
 </footer>
 
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
 </body>
