@@ -1088,10 +1088,10 @@
     <h2>SEND<br><span>MELDING</span></h2>
     <p>Har du spørsmål om kursøkter, ønsker tilbud til gruppe eller bedrift — eller har du andre spørsmål? Ta gjerne kontakt.</p>
   </div>
-  <form class="contact-form" name="kontakt" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-    <input type="hidden" name="form-name" value="kontakt" />
-    <p style="display:none"><input name="bot-field" /></p>
-    <div class="form-group">
+  <formmethod="POST"action="https://api.web3forms.com/submit">
+    <input type="hidden" name="subject" value="Ny påmelding — FeltAkademiet" />
+      <input type="checkbox" name="botcheck" style="display:none">
+      <div class="form-group">
       <label>Navn</label>
       <input type="text" name="navn" placeholder="Ditt fulle navn" required />
     </div>

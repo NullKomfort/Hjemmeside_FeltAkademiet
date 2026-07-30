@@ -192,10 +192,10 @@ ${tilleggHTML}
   <div class="signup-box">
     <div class="signup-title">Meld deg på — <span>${arr.tittel || ''}</span></div>
     <p class="signup-subtitle">${arr.dato || ''} · ${arr.tid || ''} · ${arr.pris || ''} kr</p>
-    <form class="signup-form" name="${formNavn}" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-      <input type="hidden" name="form-name" value="${formNavn}" />
-      <input type="hidden" name="arrangement" value="${arr.tittel || ''} — ${arr.dato || ''}" />
-      <p style="display:none"><input name="bot-field" /></p>
+    <form class="signup-form" method="POST" action="https://api.web3forms.com/submit">
+      <input type="hidden" name="access_key" value="61502ef2-fc38-460e-ac5d-ce59fad1f591" />
+      <input type="hidden" name="subject" value="Ny påmelding — ${arr.tittel || ''} — FeltAkademiet" />
+      <input type="checkbox" name="botcheck" style="display:none">
       <div class="form-group">
         <label>Navn</label>
         <input type="text" name="navn" placeholder="Ditt fulle navn" required />
@@ -267,14 +267,27 @@ function oppdaterIndex(arrangementer) {
     </a>`;
   }).join('\n');
 
-  // Finn og erstatt innholdet i event-list
-  const start = html.indexOf('<div class="event-list">');
-  const end = html.indexOf('</div>', start) + 6;
+  // Finn og erstatt innholdet i event-list — tell div-dybde for å finne riktig lukketag
+  const startTag = '<div class="event-list">';
+  const start = html.indexOf(startTag);
 
   if (start === -1) {
     console.log('Finner ikke event-list i index.html');
     return;
   }
+
+  // Tell div-dybde for å finne matchende </div>
+  let i = start + startTag.length;
+  let depth = 1;
+  while (i < html.length && depth > 0) {
+    if (html.slice(i, i + 4) === '<div') depth++;
+    else if (html.slice(i, i + 6) === '</div>') {
+      depth--;
+      if (depth === 0) break;
+    }
+    i++;
+  }
+  const end = i + 6; // inkluder </div>
 
   html = html.slice(0, start) +
     `<div class="event-list">\n${eventHTML}\n  </div>` +
