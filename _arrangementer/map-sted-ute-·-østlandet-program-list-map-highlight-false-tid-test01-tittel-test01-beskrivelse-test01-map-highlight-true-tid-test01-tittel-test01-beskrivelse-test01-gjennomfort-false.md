@@ -1,27 +1,27 @@
 ---
-tittel: Test01
-kurskode: Test01
-dato: Test01
-tid: Test01
-varighet: Test01
-type: Enkelt-tema
-sted: Ute · Østlandet
-plasser: 8
-pris: 400
-returrabatt: 300
-gjennomfort: false
-ingress: Test01
+tittel: TestXX
+kurskode: TestXX
+dato: TestXX
+tid: TestXX
+varighet: TestXX
+type: Teori & Demo
+sted: Inne
+plasser: 12
+pris: 20
+returrabatt: 10
+gjennomfort: true
+ingress: TestXX
 program:
-  - highlight: false
-    tid: Test01
-    tittel: Test01
-    beskrivelse: Test01
   - highlight: true
-    tid: Test01
-    tittel: Test01
-    beskrivelse: Test01
+    tid: TestXX
+    tittel: TestXX
+    beskrivelse: TestXX
+  - highlight: false
+    tid: TestXX
+    tittel: TestXX
+    beskrivelse: TestXX
 inkludert:
-  - Test01
+  - TestXX
 tillegg:
-  - Test01
+  - TestXX
 ---
