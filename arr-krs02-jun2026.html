@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bivuakk — Etablering av tilholdssted — 14. juni 2026 — FeltAkademiet</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --black:#080807;--dark:#0e0e0b;--panel:#131310;--olive:#3d3d1f;
+      --olive-mid:#5a5a2e;--olive-light:#7a7a3e;--tan:#c4b070;--tan-dim:#8a7a4a;
+      --white:#edeade;--muted:rgba(237,234,222,0.55);--red:#8b1e1e;
+      --red-bright:#bb2828;--grid:rgba(90,90,46,0.12);--scan:rgba(90,90,46,0.04);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--black);color:var(--white);font-family:'Rajdhani',sans-serif;font-weight:400;overflow-x:hidden}
+    body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+      background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+      background-size:48px 48px}
+    body::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+      background:repeating-linear-gradient(0deg,transparent,transparent 2px,var(--scan) 2px,var(--scan) 4px)}
+    nav,main,footer{position:relative;z-index:1}
+    nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 4rem;
+      border-bottom:1px solid var(--olive);background:rgba(8,8,7,0.95);
+      position:sticky;top:0;z-index:100;backdrop-filter:blur(8px)}
+    .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:0.14em;color:var(--tan);text-decoration:none}
+    .nav-logo span{color:var(--red-bright)}
+    .nav-back{font-family:'Share Tech Mono',monospace;font-size:0.72rem;letter-spacing:0.2em;
+      text-transform:uppercase;color:var(--white);text-decoration:none;opacity:0.6;
+      display:flex;align-items:center;gap:0.5rem;transition:opacity 0.2s,color 0.2s}
+    .nav-back:hover{opacity:1;color:var(--tan)}
+    .nav-back::before{content:'←';font-size:1rem}
+    main{max-width:900px;margin:0 auto;padding:4rem 2rem 6rem}
+    .arr-eyebrow{font-family:'Share Tech Mono',monospace;font-size:0.68rem;letter-spacing:0.3em;
+      color:var(--red-bright);margin-bottom:1rem;display:flex;align-items:center;gap:0.8rem}
+    .arr-eyebrow::before{content:'//';color:var(--olive-mid)}
+    h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.4rem,5.5vw,4.5rem);
+      line-height:0.95;letter-spacing:0.04em;color:var(--white);margin-bottom:2rem}
+    h1 span{color:var(--tan);display:block}
+    .arr-meta{display:flex;flex-wrap:wrap;gap:0.6rem;margin-bottom:2.5rem}
+    .arr-tag{font-family:'Share Tech Mono',monospace;font-size:0.62rem;letter-spacing:0.18em;
+      text-transform:uppercase;color:var(--olive-light);border:1px solid rgba(90,90,46,0.45);padding:0.3rem 0.8rem}
+    .arr-tag.hi{border-color:var(--tan-dim);color:var(--tan-dim)}
+    .arr-tag.red{border-color:rgba(187,40,40,0.5);color:var(--red-bright)}
+    .program{margin-bottom:2.5rem}
+    .program-title{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:0.08em;color:var(--white);margin-bottom:1.2rem}
+    .timeline{display:flex;flex-direction:column}
+    .tl-item{display:grid;grid-template-columns:80px 1fr}
+    .tl-time{font-family:'Share Tech Mono',monospace;font-size:0.72rem;letter-spacing:0.1em;
+      color:var(--tan-dim);padding:1rem 1rem 1rem 0;border-right:2px solid var(--olive);text-align:right;line-height:1.3}
+    .tl-content{padding:0.8rem 0 0.8rem 1.4rem;position:relative}
+    .tl-content::before{content:'';position:absolute;left:-5px;top:1.1rem;
+      width:8px;height:8px;border-radius:50%;background:var(--olive-mid);border:2px solid var(--black)}
+    .tl-item.highlight .tl-content::before{background:var(--tan)}
+    .tl-item.highlight .tl-time{color:var(--tan)}
+    .tl-heading{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:0.95rem;
+      text-transform:uppercase;letter-spacing:0.07em;color:var(--white);margin-bottom:0.3rem}
+    .tl-desc{font-size:0.85rem;line-height:1.65;color:var(--muted)}
+    .price-box{background:var(--panel);border:1px solid rgba(61,61,31,0.4);
+      border-left:3px solid var(--tan);padding:1.8rem 2rem;margin-bottom:2.5rem;
+      display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+    .price-item{display:flex;flex-direction:column;gap:0.3rem}
+    .price-label{font-family:'Share Tech Mono',monospace;font-size:0.62rem;letter-spacing:0.2em;color:var(--olive-light);text-transform:uppercase}
+    .price-amount{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--tan);letter-spacing:0.04em;line-height:1}
+    .price-amount.discounted{color:var(--white)}
+    .price-note{font-size:0.8rem;color:var(--muted);line-height:1.5}
+    .price-note strong{color:var(--tan)}
+    .includes{background:rgba(61,61,31,0.15);border:1px solid rgba(61,61,31,0.35);padding:1.4rem 1.8rem;margin-bottom:2.5rem}
+    .includes-title{font-family:'Share Tech Mono',monospace;font-size:0.65rem;letter-spacing:0.25em;color:var(--tan-dim);text-transform:uppercase;margin-bottom:1rem}
+    .includes-list{display:flex;flex-direction:column;gap:0.5rem}
+    .includes-item{font-size:0.88rem;color:var(--muted);display:flex;gap:0.8rem;align-items:baseline}
+    .includes-item::before{content:'▸';color:var(--red-bright);font-size:0.75rem}
+    .includes-item.extra{color:rgba(237,234,222,0.35)}
+    .includes-item.extra::before{content:'○';color:var(--olive-mid)}
+    .arr-divider{height:1px;background:linear-gradient(90deg,var(--olive),transparent);margin:2.5rem 0}
+    .signup-box{background:var(--panel);border:1px solid rgba(61,61,31,0.4);border-left:3px solid var(--red-bright);padding:2rem 2.2rem}
+    .signup-title{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:0.07em;color:var(--white);margin-bottom:0.5rem}
+    .signup-title span{color:var(--tan)}
+    .signup-subtitle{font-size:0.85rem;color:var(--muted);margin-bottom:1.5rem}
+    .signup-form{display:flex;flex-direction:column;gap:1rem}
+    .form-group{display:flex;flex-direction:column;gap:0.45rem}
+    .form-group label{font-family:'Share Tech Mono',monospace;font-size:0.65rem;letter-spacing:0.25em;color:var(--tan-dim);text-transform:uppercase}
+    .form-group input,.form-group textarea,.form-group select{
+      background:rgba(18,18,14,0.9);border:1px solid var(--olive);color:var(--white);
+      font-family:'Rajdhani',sans-serif;font-size:0.95rem;font-weight:500;
+      padding:0.8rem 1rem;outline:none;transition:border-color 0.2s;appearance:none}
+    .form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--tan-dim)}
+    .form-group textarea{min-height:80px;resize:vertical}
+    .form-group select option{background:var(--panel)}
+    .btn-primary{font-family:'Share Tech Mono',monospace;font-size:0.78rem;letter-spacing:0.2em;
+      text-transform:uppercase;background:var(--red-bright);color:var(--white);padding:0.9rem 2rem;
+      border:none;cursor:pointer;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));
+      transition:background 0.2s,transform 0.15s)}
+    .btn-primary:hover{background:var(--red);transform:translateY(-2px)}
+    footer{padding:2rem 4rem;border-top:1px solid var(--olive);display:flex;justify-content:space-between;align-items:center}
+    .footer-logo{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.14em;color:var(--tan)}
+    .footer-logo span{color:var(--red-bright)}
+    .footer-copy{font-family:'Share Tech Mono',monospace;font-size:0.62rem;letter-spacing:0.18em;color:rgba(237,234,222,0.25)}
+    @media(max-width:768px){nav{padding:1rem 1.5rem}main{padding:3rem 1.5rem 4rem}.price-box{grid-template-columns:1fr}footer{padding:2rem 1.5rem;flex-direction:column;gap:1rem;text-align:center}}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">FELT<span>AKADEMIET</span></a>
+  <div style="display:flex;align-items:center;gap:1.5rem">
+    <a href="arr-krs02-jun2026-en.html" style="font-family:'Share Tech Mono',monospace;font-size:0.65rem;letter-spacing:0.2em;color:var(--olive-light);text-decoration:none;border:1px solid rgba(61,61,31,0.4);padding:0.3rem 0.7rem">🇬🇧 English</a>
+    <a class="nav-back" href="index.html#arrangementer">Alle arrangementer</a>
+  </div>
+</nav>
+
+<main>
+
+  <div class="arr-eyebrow">Arrangement · KRS-02 · Enkelt-tema · 14. juni 2026</div>
+  <h1>BIVUAKK —<br><span>ETABLERING AV TILHOLDSSTED</span></h1>
+
+  <div class="arr-meta">
+    <span class="arr-tag hi">14. juni 2026</span>
+    <span class="arr-tag hi">09:00 – 15:00</span>
+    <span class="arr-tag">KRS-02</span>
+    <span class="arr-tag">Enkelt-tema</span>
+    <span class="arr-tag">6 timer</span>
+    <span class="arr-tag">Felttur · Ute</span>
+    <span class="arr-tag">Østlandet</span>
+    <span class="arr-tag red">400 kr</span>
+  </div>
+
+  <p style="font-size:1rem;line-height:1.85;color:var(--muted);margin-bottom:2rem">
+    Denne kursøkten går i dybden på ett av de viktigste overlevelsestemaene: <strong style="color:var(--tan)">å etablere et trygt og funksjonelt tilholdssted i felt</strong>. Vi dekker alt fra valg av plass og terrenglesing, via knuter og konstruksjonsteknikker, til bygging av nødbivuakk — og avslutter med å sette opp et improvisert bålstativ for vannkoking og klestørking.
+    <br><br>
+    Hver deltaker bygger sin egen bivuakk fra naturmaterialer. Du lærer ikke bare teorien — du gjennomfører det selv, under veiledning.
+	<br><br>
+	Kurset er utformet som en tur/ekskursjon i lokal teig. Det vil bli lagt opp til lunsj med mat (pølser) tilbredt på BioLite.
+  </p>
+
+  <div class="program">
+    <div class="program-title">Dagens program</div>
+    <div class="timeline">
+
+      <div class="tl-item highlight">
+        <div class="tl-time">09:00</div>
+        <div class="tl-content">
+          <div class="tl-heading">Oppmøte og gjennomgang</div>
+          <div class="tl-desc">Oppmøte på avtalt sted. Intro og gjennomgang av dagens plan mens vi beveger oss ut til området hvor vi skal oppholde oss. Vi diskuterer hva som kjennetegner gode og dårlige bivuakkplasser på veien.</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">09:30</div>
+        <div class="tl-content">
+          <div class="tl-heading">Terrenglesing og plassvalg</div>
+          <div class="tl-desc">Hva avgjør en god bivuakkplass? Vindretning, fall, fuktighet, vegetasjon og eksponering — naturen gir signaler om hvor du bør og ikke bør ligge.</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">10:15</div>
+        <div class="tl-content">
+          <div class="tl-heading">Knuter for bygging av ly</div>
+          <div class="tl-desc">Gjennomgang og øvelse på de viktigste knutene for lykonstruksjon — halvstikk, tømmerstikk, firskjæring og slipestikk. Vi øver til knutene sitter, både med og uten hansker.</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">11:00</div>
+        <div class="tl-content">
+          <div class="tl-heading">Isolasjon og vindskjerming</div>
+          <div class="tl-desc">Hva skiller en bivuakk som holder varmen fra en som ikke gjør det? Isolasjonsprinsipper, vindtetting med naturmaterialer og fukt fra bakken. Teori og demonstrasjon.</div>
+        </div>
+      </div>
+
+      <div class="tl-item highlight">
+        <div class="tl-time">11:30</div>
+        <div class="tl-content">
+          <div class="tl-heading">Lunsj på BioLite 🍳</div>
+          <div class="tl-desc">Pause med varm mat — pølser på BioLite-stove og drikke til. Effektivt og uten brannrisiko. Ta gjerne med ekstra mat etter behov.</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">12:15</div>
+        <div class="tl-content">
+          <div class="tl-heading">Improvisert bålstativ</div>
+          <div class="tl-desc">Vi lager et enkelt bålstativ av naturmaterialer — for å henge kjele over varme eller henge vått utstyr til tørk. En liten men nyttig detalj i etablering av et funksjonelt tilholdssted.</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">12:30</div>
+        <div class="tl-content">
+          <div class="tl-heading">Bygging av nødbivuakk</div>
+          <div class="tl-desc">Hver deltaker bygger sin egen nødbivuakk fra det terrenget gir — naturmaterialer, grener, mose og det vi har med. Vi bruker knutene og prinsippene fra formiddagen. Instruktøren veileder underveis.</div>
+        </div>
+      </div>
+
+      <div class="tl-item highlight">
+        <div class="tl-time">14:30</div>
+        <div class="tl-content">
+          <div class="tl-heading">Gjennomgang og erfaringsdeling</div>
+          <div class="tl-desc">Vi vandrer gjennom bivuakkene, vurderer løsningene og deler erfaringer. Hva fungerte? Hva ville du gjort annerledes? Oppsummering og tips til egentrening.</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">15:00</div>
+        <div class="tl-content">
+          <div class="tl-heading">Slutt</div>
+          <div class="tl-desc">Avslutning og hjemreise.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="price-box">
+    <div class="price-item">
+      <span class="price-label">Pris</span>
+      <span class="price-amount">400,-</span>
+      <span class="price-note">Ordinær pris per deltaker</span>
+    </div>
+    <div class="price-item">
+      <span class="price-label">Returrabatt</span>
+      <span class="price-amount discounted">300,-</span>
+      <span class="price-note"><strong>25% rabatt (100 kr)</strong> for deg som har deltatt på et tidligere FeltAkademiet-arrangement. Oppgi dette i påmeldingen.</span>
+    </div>
+  </div>
+
+  <div class="includes">
+    <div class="includes-title">// Inkludert i prisen</div>
+    <div class="includes-list">
+      <div class="includes-item">Instruktørledet kursøkt — 6 timer i felt</div>
+      <div class="includes-item">Mat: 2 pølser i brød, til lunsj</div>
+      <div class="includes-item">Drikke: 1 brusboks</div>
+      <div class="includes-item">Veiledning og tilbakemelding gjennom hele dagen</div>
+      <div class="includes-item extra">Ta gjerne med ekstra mat og drikke etter behov</div>
+      <div class="includes-item extra">Eget utstyr (kniv, tau, sag) er ikke nødvendig, men kan gjerne medbringes</div>
+    </div>
+  </div>
+
+  <div class="arr-divider"></div>
+
+  <div class="signup-box">
+    <div class="signup-title">Meld deg på — <span>Bivuakk</span></div>
+    <p class="signup-subtitle">14. juni 2026 · 09:00–15:00 · Etablering av tilholdssted · 400 kr (300 kr med returrabatt)</p>
+    <form class="signup-form" name="paamelding-krs02-jun2026" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="paamelding-krs02-jun2026" />
+      <input type="hidden" name="arrangement" value="Bivuakk — Etablering av tilholdssted — KRS-02 — 14. juni 2026" />
+      <p style="display:none"><input name="bot-field" /></p>
+      <div class="form-group">
+        <label>Navn</label>
+        <input type="text" name="navn" placeholder="Ditt fulle navn" required />
+      </div>
+      <div class="form-group">
+        <label>E-post</label>
+        <input type="email" name="epost" placeholder="din@epost.no" required />
+      </div>
+      <div class="form-group">
+        <label>Pris</label>
+        <select name="pris" required>
+          <option value="">— Velg prisklasse —</option>
+          <option value="Ordinær — 400 kr">Ordinær pris — 400 kr</option>
+          <option value="Returrabatt — 300 kr">Returrabatt (tidligere deltaker) — 300 kr</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Melding (valgfritt)</label>
+        <textarea name="melding" placeholder="Spørsmål, allergier eller annet du vil si fra om…"></textarea>
+      </div>
+      <button class="btn-primary" type="submit">Meld meg på</button>
+    </form>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-logo">FELT<span>AKADEMIET</span></div>
+  <div class="footer-copy">© 2025 · Norge · Alle rettigheter forbeholdt</div>
+</footer>
+
+</body>
+</html>

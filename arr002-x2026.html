@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Overlevelse — Grunnprinsipper — FeltAkademiet</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --black:#080807;--dark:#0e0e0b;--panel:#131310;--olive:#3d3d1f;
+      --olive-mid:#5a5a2e;--olive-light:#7a7a3e;--tan:#c4b070;--tan-dim:#8a7a4a;
+      --white:#edeade;--muted:rgba(237,234,222,0.55);--red:#8b1e1e;
+      --red-bright:#bb2828;--grid:rgba(90,90,46,0.12);--scan:rgba(90,90,46,0.04);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--black);color:var(--white);font-family:'Rajdhani',sans-serif;font-weight:400;overflow-x:hidden}
+    body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+      background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+      background-size:48px 48px}
+    body::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+      background:repeating-linear-gradient(0deg,transparent,transparent 2px,var(--scan) 2px,var(--scan) 4px)}
+    nav,main,footer{position:relative;z-index:1}
+    nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 4rem;
+      border-bottom:1px solid var(--olive);background:rgba(8,8,7,0.95);
+      position:sticky;top:0;z-index:100;backdrop-filter:blur(8px)}
+    .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:0.14em;
+      color:var(--tan);text-decoration:none}
+    .nav-logo span{color:var(--red-bright)}
+    .nav-back{font-family:'Share Tech Mono',monospace;font-size:0.72rem;letter-spacing:0.2em;
+      text-transform:uppercase;color:var(--white);text-decoration:none;opacity:0.6;
+      display:flex;align-items:center;gap:0.5rem;transition:opacity 0.2s,color 0.2s}
+    .nav-back:hover{opacity:1;color:var(--tan)}
+    .nav-back::before{content:'←';font-size:1rem}
+    main{max-width:860px;margin:0 auto;padding:4rem 2rem 6rem}
+    .arr-eyebrow{font-family:'Share Tech Mono',monospace;font-size:0.68rem;letter-spacing:0.3em;
+      color:var(--red-bright);margin-bottom:1rem;display:flex;align-items:center;gap:0.8rem}
+    .arr-eyebrow::before{content:'//';color:var(--olive-mid)}
+    .arr-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,5vw,4.5rem);
+      line-height:0.95;letter-spacing:0.04em;color:var(--white);margin-bottom:2rem}
+    .arr-title span{color:var(--tan);display:block}
+    .arr-meta{display:flex;flex-wrap:wrap;gap:0.6rem;margin-bottom:2.5rem}
+    .arr-tag{font-family:'Share Tech Mono',monospace;font-size:1.02rem;letter-spacing:0.18em;
+      text-transform:uppercase;color:var(--olive-light);border:1px solid rgba(90,90,46,0.45);
+      padding:0.3rem 0.8rem}
+    .arr-tag.hi{border-color:var(--tan-dim);color:var(--tan-dim)}
+    .arr-desc{font-size:1.1rem;line-height:1.85;color:var(--muted);margin-bottom:2.5rem}
+    .arr-desc strong{color:var(--tan);font-weight:600}
+    .arr-divider{height:1px;background:linear-gradient(90deg,var(--olive),transparent);margin:2.5rem 0}
+    .signup-box{background:var(--panel);border:1px solid rgba(61,61,31,0.4);
+      border-left:3px solid var(--red-bright);padding:2rem 2.2rem}
+    .signup-title{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:0.07em;
+      color:var(--white);margin-bottom:1.5rem}
+    .signup-title span{color:var(--tan)}
+    .signup-form{display:flex;flex-direction:column;gap:1rem}
+    .form-group{display:flex;flex-direction:column;gap:0.45rem}
+    .form-group label{font-family:'Share Tech Mono',monospace;font-size:0.65rem;
+      letter-spacing:0.25em;color:var(--tan-dim);text-transform:uppercase}
+    .form-group input,.form-group textarea{background:rgba(18,18,14,0.9);
+      border:1px solid var(--olive);color:var(--white);font-family:'Rajdhani',sans-serif;
+      font-size:0.95rem;font-weight:500;padding:0.8rem 1rem;outline:none;
+      transition:border-color 0.2s;appearance:none}
+    .form-group input:focus,.form-group textarea:focus{border-color:var(--tan-dim)}
+    .form-group textarea{min-height:90px;resize:vertical}
+    .btn-primary{font-family:'Share Tech Mono',monospace;font-size:0.78rem;
+      letter-spacing:0.2em;text-transform:uppercase;background:var(--red-bright);
+      color:var(--white);padding:0.9rem 2rem;border:none;cursor:pointer;
+      clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));
+      transition:background 0.2s,transform 0.15s}
+    .btn-primary:hover{background:var(--red);transform:translateY(-2px)}
+    footer{padding:2rem 4rem;border-top:1px solid var(--olive);
+      display:flex;justify-content:space-between;align-items:center}
+    .footer-logo{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;
+      letter-spacing:0.14em;color:var(--tan)}
+    .footer-logo span{color:var(--red-bright)}
+    .footer-copy{font-family:'Share Tech Mono',monospace;font-size:0.62rem;
+      letter-spacing:0.18em;color:rgba(237,234,222,0.25)}
+    @media(max-width:768px){nav{padding:1rem 1.5rem}main{padding:3rem 1.5rem 4rem}footer{padding:2rem 1.5rem;flex-direction:column;gap:1rem;text-align:center}}
+  </style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">FELT<span>AKADEMIET</span></a>
+  <a class="nav-back" href="index.html#arrangementer">Alle arrangementer</a>
+</nav>
+<main>
+  <div class="arr-eyebrow">Arrangement · KRS-x · dag. måned 2026</div>
+  <h1 class="arr-title">Kategori —<span>Tema</span></h1>
+  <div class="arr-meta">
+    <span class="arr-tag hi">dag. mån 2026</span>
+    <span class="arr-tag">tid</span>
+    <span class="arr-tag">Teori & Demo</span>
+    <span class="arr-tag">ca varighet timer</span>
+    <span class="arr-tag">Pris ,-</span>
+    <span class="arr-tag">KOMMER</span>
+  </div>
+  <div class="arr-desc">Info kommer — <strong> etterhvert</strong>. Legges ut fortløpende.<br><br>Forespør ved ønsker.</div>
+  <div class="arr-divider"></div>
+  <div class="signup-box">
+    <div class="signup-title">Meld deg på — <span>Kategori — Tema</span></div>
+    <form class="signup-form" name="paamelding-krs01-feb2026" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="paamelding-krs01-feb2026" />
+      <input type="hidden" name="arrangement" value="Overlevelse — Grunnprinsipper — 15. februar 2026" />
+      <p style="display:none"><input name="bot-field" /></p>
+      <div class="form-group">
+        <label>Navn</label>
+        <input type="text" name="navn" placeholder="Ditt fulle navn" required />
+      </div>
+      <div class="form-group">
+        <label>E-post</label>
+        <input type="email" name="epost" placeholder="din@epost.no" required />
+      </div>
+      <div class="form-group">
+        <label>Arrangement</label>
+        <input type="text" value="Kategori — Tema — dag. måned 2026" readonly style="opacity:0.6;cursor:default;" />
+      </div>
+      <div class="form-group">
+        <label>Melding (valgfritt)</label>
+        <textarea name="melding" placeholder="Spørsmål eller kommentarer…"></textarea>
+      </div>
+      <button class="btn-primary" type="submit">Meld meg på</button>
+    </form>
+  </div>
+</main>
+<footer>
+  <div class="footer-logo">FELT<span>AKADEMIET</span></div>
+  <div class="footer-copy">© 2025 · Norge · Alle rettigheter forbeholdt</div>
+</footer>
+</body>
+</html>
